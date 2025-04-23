@@ -1,0 +1,21 @@
+name:                HMusicTools
+synopsis:            Haskell support for MusicTools
+version:             0.1.0.0
+github:              halfaya/MusicTools
+license:             MIT
+author:              John Leo
+maintainer:          leo@halfaya.org
+copyright:           2023 John Leo
+
+dependencies:
+- base >= 4.7 && < 5
+- xml
+- sbv
+- text
+- split
+- HCodecs
+
+executables:
+  HMusicTools:
+    main:                Main.hs
+    source-dirs:         src

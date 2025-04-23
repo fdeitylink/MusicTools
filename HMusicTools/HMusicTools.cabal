@@ -1,0 +1,40 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           HMusicTools
+version:        0.1.0.0
+synopsis:       Haskell support for MusicTools
+homepage:       https://github.com/halfaya/MusicTools#readme
+bug-reports:    https://github.com/halfaya/MusicTools/issues
+author:         John Leo
+maintainer:     leo@halfaya.org
+copyright:      2023 John Leo
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/halfaya/MusicTools
+
+executable HMusicTools
+  main-is: Main.hs
+  other-modules:
+      Expr
+      Midi
+      Serial
+      Smt
+      Xml
+      Paths_HMusicTools
+  hs-source-dirs:
+      src
+  build-depends:
+      HCodecs
+    , base >=4.7 && <5
+    , sbv
+    , split
+    , text
+    , xml
+  default-language: Haskell2010
