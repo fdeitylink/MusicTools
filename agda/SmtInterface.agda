@@ -4,7 +4,7 @@ module SmtInterface where
 
 open import Prelude hiding (lookup; #_; _+_; _-_)
 
-open import IO.Primitive
+open import IO.Primitive.Core
 
 open import Constraint
 open import Counterpoint

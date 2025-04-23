@@ -7,7 +7,7 @@ open import Prelude
 open import Data.Integer public  using () renaming (_≤ᵇ_ to _≤ℤ_)
 open import Data.Integer.DivMod  using () renaming (_%ℕ_ to _modN_)
 open import Data.Nat             using (_<_; _<ᵇ_)
-open import Data.Nat.Properties  using (≤-step; ≤-trans; ≤-refl)
+open import Data.Nat.Properties  using (m≤n⇒m≤1+n ; ≤-trans; ≤-refl)
 open import Relation.Nullary.Decidable using (False)
 open import Relation.Nullary     using (yes; no; ¬_)
 open import Relation.Unary       using (Pred; Decidable)
@@ -27,7 +27,7 @@ repeat : {ℓ : Level} {A : Type ℓ} → (n : ℕ) → List A → List A
 repeat n = concat ∘ replicate n
 
 repeatV : {ℓ : Level} {A : Type ℓ} {k : ℕ} → (n : ℕ) → Vec A k → Vec A (n * k)
-repeatV n = cat ∘ rep {n = n}
+repeatV n = cat ∘ rep n
 
 -- return index of first element that satisfies predicate or last element if none do
 findIndex : {a ℓ : Level} {A : Type a} {n : ℕ} {P : Pred A ℓ} → Decidable P → Vec A (suc n) → Fin (suc n)
@@ -126,7 +126,7 @@ n∸k<n : (n k : ℕ) → (suc n) ∸ (suc k) < suc n
 n∸k<n zero    zero    = s≤s z≤n
 n∸k<n (suc n) zero    = s≤s (n∸k<n n zero)
 n∸k<n zero    (suc k) = s≤s z≤n
-n∸k<n (suc n) (suc k) = ≤-trans (n∸k<n n k) (≤-step ≤-refl)
+n∸k<n (suc n) (suc k) = ≤-trans (n∸k<n n k) (m≤n⇒m≤1+n ≤-refl)
 
 opposite' : ∀ {n} → Fin n → Fin n
 opposite' {suc n} fz       = fz

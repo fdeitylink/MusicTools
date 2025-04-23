@@ -15,7 +15,7 @@ show : {n : ℕ} → BitVec n → String
 show = fromList ∘ toList ∘ vmap (λ {true → '1' ; false → '0'})
 
 empty : {n : ℕ} → BitVec n
-empty = rep false
+empty = rep _ false
 
 insert : {n : ℕ} → Fin n → BitVec n → BitVec n
 insert k s = s [ k ]%= (λ _ → true)

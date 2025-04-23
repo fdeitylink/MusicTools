@@ -8,7 +8,7 @@ open import Data.Nat using (ℕ)
 open import Data.List using (List; []; _∷_; concatMap)
 open import Data.Product using (_,_)
 open import Data.Unit using (⊤)
-open import IO.Primitive
+open import IO.Primitive.Core
 
 open import MidiEvent using (Tick; MidiEvent; midiEvent; MidiTrack; track)
 

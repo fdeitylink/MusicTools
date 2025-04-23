@@ -230,8 +230,8 @@ emptyICV = 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ 0 ∷ []
 icVector : List PC → ICV
 icVector pcs =
   foldl
-    (λ icv pc → updateAt (toIC pc) suc icv)
-    (updateAt (# 0) (λ _ → length pcs) emptyICV)
+    (λ icv pc → updateAt icv (toIC pc) suc)
+    (updateAt emptyICV (# 0) (λ _ → length pcs))
     (allPairs pcs)
 
 ----------

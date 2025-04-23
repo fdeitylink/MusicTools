@@ -31,8 +31,8 @@ melody a m++ melody b = melody (a ++v b)
 
 note→melody : (n : Note) → Melody (noteDuration n)
 note→melody (tone zero    p) = melody []
-note→melody (tone (suc d) p) = melody (tone p ∷ rep (hold p))
-note→melody (rest _)         = melody (rep rest)
+note→melody (tone (suc d) p) = melody (tone p ∷ rep _ (hold p))
+note→melody (rest _)         = melody (rep _ rest)
 
 notes→melody : (ns : List Note) → Melody (sum (map noteDuration ns))
 notes→melody []       = melody []
@@ -83,7 +83,7 @@ unharmony (harmony h) = h
 
 pitches→harmony : {n : ℕ} (d : Duration) → (ps : Vec Pitch n) → Harmony n d
 pitches→harmony zero    ps = harmony []
-pitches→harmony (suc d) ps = harmony (chord (vmap tone ps) ∷ rep (chord (vmap hold ps)))
+pitches→harmony (suc d) ps = harmony (chord (vmap tone ps) ∷ rep _ (chord (vmap hold ps)))
 
 pitchPair→Harmony : (d : Duration) → PitchPair → Harmony 2 d
 pitchPair→Harmony d (p , q) = pitches→harmony d (p ∷ q ∷ [])
@@ -109,7 +109,7 @@ foldIntoHarmony (d ∷ d' ∷ ds) (ps ∷ ps' ∷ pss) = (pitches→harmony d ps
 
 -- matrix transposition
 mtranspose : {A : Set}{m n : ℕ} → Vec (Vec A n) m → Vec (Vec A m) n
-mtranspose []         = rep []
+mtranspose []         = rep _ []
 mtranspose (xs ∷ xss) = zipWith _∷_ xs (mtranspose xss)
 
 counterpoint→harmony : {v d : ℕ} → Counterpoint v d → Harmony v d
@@ -122,7 +122,7 @@ harmony→counterpoint = cp ∘ vmap melody ∘ mtranspose ∘ vmap unchord ∘ 
 fixLength : {m : ℕ} → (n : ℕ) → Melody m → Melody n
 fixLength {m} n (melody ns) with <-∨-≥ n m
 ... | inj₁ n<m = melody (vtake n (subst (Vec Point) (sym (m+n-m=n n m {<⇒≤ n<m})) ns))
-... | inj₂ m≤n = melody (subst (Vec Point) (m+n-m=n m n) (ns ++v rep {n = n - m ⟨ m≤n ⟩} rest))
+... | inj₂ m≤n = melody (subst (Vec Point) (m+n-m=n m n) (ns ++v rep (n - m ⟨ m≤n ⟩) rest))
 
 holdToTone : Point → Point
 holdToTone (tone p) = tone p

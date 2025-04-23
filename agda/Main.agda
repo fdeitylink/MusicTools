@@ -3,7 +3,7 @@
 module Main where
 
 open import Prelude
-open import IO.Primitive
+open import IO.Primitive.Core
 
 open import Beethoven
 open import Counterpoint using (defaultConstraints)

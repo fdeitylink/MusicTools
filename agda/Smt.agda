@@ -7,7 +7,7 @@ open import Agda.Builtin.String using (String)
 open import Data.List           using (List; map)
 open import Data.Integer        using (ℤ)
 open import Function            using (_∘_)
-open import IO.Primitive
+open import IO.Primitive.Core
 
 open import Expr
 
