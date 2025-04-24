@@ -19,7 +19,16 @@ A = sp A♮
 B = sp B♮
 
 jingle : List (List SPitch)
-jingle = (G 5 ∷ C 1 ∷ D 2 ∷ C 1 ∷ D 2 ∷ E 3 ∷ G 5 ∷ C 1 ∷ D 2 ∷ C 1 ∷ D 2 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ G 5 ∷ C 1 ∷ D 2 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ G 5 ∷ G 5 ∷ C 1 ∷ D 2 ∷ C 1 ∷ D 2 ∷ E 3 ∷ E 3 ∷ F 4 ∷ F 4 ∷ F 4 ∷ E 3 ∷ F 4 ∷ F 4 ∷ D 2 ∷ C 1 ∷ D 2 ∷ E 3 ∷ E 3 ∷ F 4 ∷ F 4 ∷ D 2 ∷ C 1 ∷ D 2 ∷ C 1 ∷ D 2 ∷ E 3 ∷ E 3 ∷ E 3 ∷ F 4 ∷ F 4 ∷ F 4 ∷ F 4 ∷ D 2 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ G 5 ∷ G 5 ∷ C 1 ∷ D 2 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ F 4 ∷ F 4 ∷ F 4 ∷ F 4 ∷ F 4 ∷ F 4 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ F 4 ∷ F 4 ∷ E 3 ∷ F 4 ∷ F 4 ∷ F 4 ∷ E 3 ∷ E 3 ∷ F 4 ∷ D 2 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ []) ∷ []
+jingle = (G 5 ∷ C 1 ∷ D 2 ∷ C 1 ∷ D 2 ∷ E 3 ∷ G 5 ∷ C 1 ∷ D 2 ∷ C 1 ∷
+          D 2 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ G 5 ∷ C 1 ∷ D 2 ∷ E 3 ∷ E 3 ∷
+          E 3 ∷ E 3 ∷ G 5 ∷ G 5 ∷ C 1 ∷ D 2 ∷ C 1 ∷ D 2 ∷ E 3 ∷ E 3 ∷
+          F 4 ∷ F 4 ∷ F 4 ∷ E 3 ∷ F 4 ∷ F 4 ∷ D 2 ∷ C 1 ∷ D 2 ∷ E 3 ∷
+          E 3 ∷ F 4 ∷ F 4 ∷ D 2 ∷ C 1 ∷ D 2 ∷ C 1 ∷ D 2 ∷ E 3 ∷ E 3 ∷
+          E 3 ∷ F 4 ∷ F 4 ∷ F 4 ∷ F 4 ∷ D 2 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷
+          E 3 ∷ E 3 ∷ E 3 ∷ G 5 ∷ G 5 ∷ C 1 ∷ D 2 ∷ E 3 ∷ E 3 ∷ E 3 ∷
+          E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ F 4 ∷ F 4 ∷ F 4 ∷ F 4 ∷
+          F 4 ∷ F 4 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ F 4 ∷ F 4 ∷ E 3 ∷ F 4 ∷
+          F 4 ∷ F 4 ∷ E 3 ∷ E 3 ∷ F 4 ∷ D 2 ∷ E 3 ∷ E 3 ∷ E 3 ∷ E 3 ∷ []) ∷ []
 
 jingleLen : ℕ
 jingleLen = 100
