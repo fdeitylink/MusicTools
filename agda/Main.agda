@@ -5,7 +5,7 @@ module Main where
 open import Prelude
 open import IO.Primitive.Core
 
-open import Beethoven
+open import JingleBells
 open import Counterpoint using (defaultConstraints)
 open import Location     using (indexVoiceBeat; location; rectangle)
 open import Midi         using (exportTracks; track→htrack)
@@ -16,11 +16,13 @@ open import Variable     using (makeVars)
 
 main : IO ⊤
 main = do
-  let ticksPerBeat = 4 -- (1 = quarter notes; 4 = 16th notes)
-      file         = "/Users/leo/Music/MusicTools/test.mid"
-      range        = rectangle (location 2 2) (location 4 11)
-      source       = makeVars range (indexVoiceBeat (take 3 beethoven146m))
---      range        = rectangle (location 1 2) (location 1 9)
---      source       = makeVars range (indexVoiceBeat tanaka)
+  let ticksPerBeat = 2 -- (1 = quarter notes; 4 = 16th notes)
+      source       = indexVoiceBeat jinglem
   song             ← solveToMidi half defaultConstraints source
-  exportTracks file ticksPerBeat (map track→htrack song)
+  exportTracks "jingle.mid" ticksPerBeat (map track→htrack song)
+
+  let
+      range        = rectangle (location 1 1) (location 1 jingleLen)
+      source       = makeVars range (indexVoiceBeat jingleCantusm)
+  song             ← solveToMidi half defaultConstraints source
+  exportTracks "jinglectr.mid" ticksPerBeat (map track→htrack song)
